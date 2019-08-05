@@ -38,21 +38,22 @@ class Directory extends React.Component {
                 imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                 size: 'large',
                 id: 5,
-                linkUrl: 'shop/mens'
+                  linkUrl: 'shop/mens'
+                }
+              ]   
+          }
+      }
+      render() {
+        const { sections } = this.state;
+          return(
+              <div className="directory-menu">
+                { 
+                  sections.map(({ id, ...otherSectionProps}) => {
+                  return <MenuItem key={id} {...otherSectionProps}/>
+              })
               }
-            ]   
-        }
-    }
-    render() {
-        return(
-            <div className="directory-menu">
-               { 
-                this.state.sections.map(({ id, ...otherSectionProps}) => {
-                return <MenuItem key={id} {...otherSectionProps}/>
-            })
-            }
-            </div>
-        );
+              </div>
+          );
     }
 }
 
